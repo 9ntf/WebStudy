@@ -1,32 +1,24 @@
 package com.example.webstudy.service;
 
-import com.example.webstudy.model.TransferBalance;
-import com.example.webstudy.repository.WebRepository;
+import com.example.webstudy.model.User;
+import com.example.webstudy.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
+import javax.management.relation.Role;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class WebService {
+    UserRepository userRepository;
 
-    private final WebRepository webRepository;
 
-
-    public BigDecimal getBalance(int id) {
-        BigDecimal balance =  webRepository.getBalanceFromId(id);
-        if (balance == null) {
-            throw new IllegalArgumentException();
-        }
-        return balance;
+    public User getUser(Long id) {
+        return userRepository.findById(id).get();
     }
 
-    public void transferMoney(int id, BigDecimal amount) {
-        webRepository.transfer(id, amount);
-    }
-
-    public BigDecimal addMoney(Integer to, BigDecimal amount) {
-        return webRepository.addMoney(to, amount);
-    }
+    public User save (User user){
+        return userRepository.save(user);
+    };
 }
