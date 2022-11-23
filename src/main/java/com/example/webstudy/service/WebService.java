@@ -1,24 +1,15 @@
 package com.example.webstudy.service;
 
-import com.example.webstudy.model.User;
-import com.example.webstudy.repository.UserRepository;
+import com.example.webstudy.repository.FileRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import javax.management.relation.Role;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class WebService {
-    UserRepository userRepository;
+    FileRepository fileRepository;
 
-
-    public User getUser(Long id) {
-        return userRepository.findById(id).get();
+    public void saveBodyRequest(String message){
+        fileRepository.saveInToFile(message);
     }
-
-    public User save (User user){
-        return userRepository.save(user);
-    };
 }
