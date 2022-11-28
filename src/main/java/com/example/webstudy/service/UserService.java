@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 public class UserService {
     UserRepository userRepository;
 
+    //Получение пользователя из репозитория
     public User getUser(Long id) {
         return userRepository.findById(id).get();
     }
 
+    //Сохранение пользователя в репозиторий
     public User save(User user) {
         return userRepository.save(user);
     }

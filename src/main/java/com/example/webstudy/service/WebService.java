@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class WebService {
     FileRepository fileRepository;
 
+    //Сохранение тела запроса
     public void saveBodyRequest(String message){
         fileRepository.saveInToFile(message);
     }

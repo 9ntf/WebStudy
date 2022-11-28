@@ -8,7 +8,9 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
+    //Получить пользователя по id
     Optional<User> findById(Long id);
 
+    //Сохранение в базу
     User save(User user);
 }

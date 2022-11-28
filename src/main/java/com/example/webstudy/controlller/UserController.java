@@ -20,11 +20,13 @@ public class UserController {
         return String.format("Hello %s!", name);
     }
 
+    //Получение пользователя
     @GetMapping("/greeting")
     public String greeting(@RequestParam(value = "id", defaultValue = "World") Long id) {
         return String.format("Hello %s!", userService.getUser(id).getName());
     }
 
+    //Создание пользователя из JSON
     @PostMapping(
             value = "/createuser",
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
