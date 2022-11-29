@@ -37,6 +37,12 @@ public class UserController {
                 .body(persistedUser);
     }
 
+    //Получение JSON пользователя из файла
+    @GetMapping("/getusersfromfile")
+    public String getUserFromFile(@RequestParam(value = "filename") String fileName){
+        return userService.getUserFromFile(fileName);
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     public String handle(IllegalArgumentException e) {
         return "ERROR: " + e.getMessage();
