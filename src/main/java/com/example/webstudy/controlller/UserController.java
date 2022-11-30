@@ -15,11 +15,6 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/hello")
-    public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return String.format("Hello %s!", name);
-    }
-
     //Получение пользователя
     @GetMapping("/greeting")
     public String greeting(@RequestParam(value = "id", defaultValue = "World") Long id) {
